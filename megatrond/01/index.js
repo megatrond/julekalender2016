@@ -1,18 +1,11 @@
 
+for (let number = 16; number < Number.MAX_SAFE_INTEGER; number += 10) {
+	const log = Math.floor(Math.log10(number));
 
-let notFound = true;
-let number = 16;
+	const tester = Math.floor(number/10) + (Math.pow(10, log) * 6);
 
-while (notFound) {
-	let numberArray = number.toString().split('');
-	const last = numberArray.pop();
-
-	const rearranged = parseInt([last].concat(numberArray).join(''));
-
-	if ((number*4) === rearranged) {
-		notFound = false;
+	if (tester === (number * 4)) {
 		console.log(number);
+		break;
 	}
-
-	number = number + 10;
 }
