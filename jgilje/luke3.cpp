@@ -67,6 +67,7 @@ static void calc() {
 int main(int argc, char* argv[]) {
     if (argc <= 1) {
         std::cout << "Missing input file" << std::endl;
+        return 1;
     }
 
     read(argv[1]);
