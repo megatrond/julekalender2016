@@ -7,24 +7,12 @@
 #include <algorithm>
 
 struct Person {
-    std::string name;
     std::unordered_set<std::string> friends;
     std::unordered_set<std::string> hates;
     int chameleon = 0;
 };
 
 static std::unordered_map<std::string, Person> persons;
-
-static void ensure_person(const std::string a) {
-    if (persons.count(a) == 0) {
-        persons[a] = Person{a, {}, {}};
-    }
-}
-
-static void ensure_persons(const std::string a, const std::string b) {
-    ensure_person(a);
-    ensure_person(b);
-}
 
 static void read(std::string file) {
     std::ifstream f(file);
@@ -33,11 +21,9 @@ static void read(std::string file) {
 
     while (f >> a >> b >> c) {
         if (a == "friends") {
-            ensure_persons(b, c);
             persons[b].friends.emplace(c);
             persons[c].friends.emplace(b);
         } else if (b == "hates") {
-            ensure_persons(a, c);
             persons[a].hates.emplace(c);
         } else {
             throw "Unknown input line";
@@ -55,9 +41,10 @@ static bool is_chameleon(const std::string& a, const std::string& b) {
 
 static void calc() {
     std::for_each(persons.begin(), persons.end(), [](auto& it) {
+        auto& name = it.first;
         auto& person = it.second;
         std::for_each(person.friends.begin(), person.friends.end(), [&](auto& other) {
-            if (is_mutual_friends(person.name, other) && is_chameleon(person.name, other)) {
+            if (is_mutual_friends(name, other) && is_chameleon(name, other)) {
                 person.chameleon++;
             }
         });
