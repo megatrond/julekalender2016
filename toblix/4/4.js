@@ -1,7 +1,6 @@
 var counters = [];
 
 for(var i = 1; i < 1338; i++) {
-	var counterIdx = 0;
 	console.log(i, next(0));
 }
 
