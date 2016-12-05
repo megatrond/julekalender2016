@@ -6,3 +6,6 @@ SET (CMAKE_CXX_STANDARD 14)
 
 ADD_EXECUTABLE(luke1 luke1.cpp)
 ADD_EXECUTABLE(luke2 luke2.cpp)
+ADD_EXECUTABLE(luke3 luke3.cpp)
+ADD_EXECUTABLE(luke4 luke4.cpp)
+ADD_EXECUTABLE(luke5 luke5.cpp)
