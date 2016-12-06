@@ -53,7 +53,7 @@ let count = 1;
 
 while (count < 1000000000000000) {
 	position = nextMove(position);
-	count += 1000000000000000;
+	count += 1e+15;
 }
 
-console.log(3*1000000000000000 - 3);
+console.log((1e+15 - 1) * 3);
