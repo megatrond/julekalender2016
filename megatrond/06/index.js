@@ -51,7 +51,7 @@ const nextMove = (pos) => {
 
 let count = 1;
 
-while (count < 1000000000000000) {
+while (count < 1e+15) {
 	position = nextMove(position);
 	count += 1e+15;
 }
