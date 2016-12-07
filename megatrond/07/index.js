@@ -3,7 +3,7 @@ const readline = require('readline');
 const fs = require('fs');
 
 const rl = readline.createInterface({
-	input: fs.createReadStream('skattekart.txt')
+	input: fs.createReadStream(__dirname + '/../../problems/07.txt')
 });
 
 let meters = [0,0];
@@ -33,6 +33,5 @@ rl.on('line', line => {
 });	
 
 rl.on('close', () => {
-	console.log('end');
-	console.log(meters);
+	console.log(meters[0] + ',' + meters[1]);
 })
