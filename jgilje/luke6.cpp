@@ -10,6 +10,8 @@ struct Pos {
     int x = 0;
     int y = 0;
 
+	Pos(int x = 0, int y = 0) : x(x), y(y) {}
+
     int value() const { return x + y; }
     bool operator==(const Pos& rhs) const {
         return (x == rhs.x) && (y == rhs.y);
