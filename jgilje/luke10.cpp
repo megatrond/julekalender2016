@@ -4,15 +4,21 @@
 #include <string>
 
 struct Player {
-    std::string name;
+    Player(int kill_count) : kill_count(kill_count) {}
+
     int kill_count = 0;
     int killed_in_room = -1;
     bool alive = true;
 };
 
+#define THIEF 0
+#define WIZARD 1
+#define WARRIOR 2
+#define PRIEST 3
+
 int main() {
     std::vector<Player> players = {
-        {"Thief", 1}, {"Wizard", 10}, {"Warrior", 1}, {"Priest", 0}
+        {1}, {10}, {1}, {0}
     };
     int priest_ressurected_in_room = -1;
 
@@ -27,7 +33,7 @@ int main() {
         }
 
         // rule 4
-        if (players[3].alive) {
+        if (players[PRIEST].alive) {
             if (priest_ressurected_in_room != i) {
                 auto resurrect = [&](auto& player) {
                     player.alive = true;
@@ -35,10 +41,10 @@ int main() {
                     priest_ressurected_in_room = i;
                 };
 
-                if (players[2].killed_in_room == i) {
-                    resurrect(players[2]);
-                } else if (players[1].killed_in_room == i) {
-                    resurrect(players[1]);
+                if (players[WARRIOR].killed_in_room == i) {
+                    resurrect(players[WARRIOR]);
+                } else if (players[WIZARD].killed_in_room == i) {
+                    resurrect(players[WIZARD]);
                 }
             }
         }
@@ -64,12 +70,12 @@ int main() {
                 player.killed_in_room = i;
             };
 
-            if (players[2].alive) {
-                kill_player(players[2]);
-            } else if (players[1].alive) {
-                kill_player(players[1]);
-            } else if (players[3].alive) {
-                kill_player(players[3]);
+            if (players[WARRIOR].alive) {
+                kill_player(players[WARRIOR]);
+            } else if (players[WIZARD].alive) {
+                kill_player(players[WIZARD]);
+            } else if (players[PRIEST].alive) {
+                kill_player(players[PRIEST]);
             }
         }
 
