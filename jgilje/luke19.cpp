@@ -27,6 +27,8 @@ int main() {
             "353333200088447391562022871936088080991266669104684277591591957977\n"
             "793513793191571111551759753359919395337193955751135713113775753377\n";
 
+    std::cout << "\x1b[37;1m";
+    std::cout << "\x1b[41;1m";
     std::stringstream ss(str);
     std::string line;
     while (ss >> line) {
@@ -34,12 +36,13 @@ int main() {
             switch (c) {
             case '0': case '2': case '4':
             case '6': case '8':
-                return 'X';
+                return '0';
             default:
                 return ' ';
             }
 
         });
-        std::cout << line << std::endl;
+        std::cout << line << "\n";
     }
+    std::cout << "\x1b[0m";
 }
