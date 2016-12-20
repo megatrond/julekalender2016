@@ -27,13 +27,11 @@ rl.on('line', line => {
 
 
 rl.on('close', () => {
-	let richPeople = 0;
-	for (let key in balance) {
-		if (balance.hasOwnProperty(key)) {
-			if (balance[key] > 10) {
-				richPeople++;
-			}
+	const richPeople = Object.keys(balance).reduce((richPeople, account) => {
+		if (balance[account] > 10) {
+			return richPeople + 1
 		}
-	}
+		return richPeople;
+	}, 0);
 	console.log(richPeople);
 });
