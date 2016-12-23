@@ -4,6 +4,8 @@ PROJECT(knowit)
 
 SET (CMAKE_CXX_STANDARD 14)
 
+INCLUDE_DIRECTORIES(include)
+
 ADD_EXECUTABLE(luke1 luke1.cpp)
 ADD_EXECUTABLE(luke2 luke2.cpp)
 ADD_EXECUTABLE(luke3 luke3.cpp)
@@ -26,3 +28,4 @@ ADD_EXECUTABLE(luke19 luke19.cpp)
 ADD_EXECUTABLE(luke20 luke20.cpp)
 ADD_EXECUTABLE(luke21 luke21.cpp)
 ADD_EXECUTABLE(luke22 luke22.cpp)
+ADD_EXECUTABLE(luke23 luke23.cpp)
