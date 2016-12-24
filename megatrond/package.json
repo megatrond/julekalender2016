@@ -7,5 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Trond Sørås <trond@origin.no> (http://www.trondfoto.no)",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "bignumber.js": "^3.0.1"
+  }
 }
